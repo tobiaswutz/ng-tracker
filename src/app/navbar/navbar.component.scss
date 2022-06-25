@@ -3,7 +3,6 @@
   color: white;
   position: fixed;
   top: 0;
-  border-bottom: 1px solid #e9ecef;
   border-radius: 0;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   margin-bottom: 0;
@@ -13,6 +12,11 @@
   height: 3.5rem;
   width: 100vw;
   justify-content: space-between;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 177, 212, 0.854),
+    rgb(0, 76, 106)
+  );
 }
 
 .logo {
@@ -67,7 +71,12 @@
   &:hover {
     transition: all 0.1s;
     color: black;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    // background-image: linear-gradient(
+    //   to right,
+    //   rgba(0, 238, 255, 0.8),
+    //   rgba(0, 255, 179, 1)
+    // );
     border-radius: 6px;
   }
 }
@@ -76,17 +85,11 @@
   color: black;
   background-color: white;
   border-radius: 6px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 .active {
   color: black;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 238, 255, 0.8),
-    rgba(0, 255, 179, 1)
-  );
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 6px;
 }
 
@@ -101,10 +104,11 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: white;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  border-radius: 6px;
 }
 
 /* Links inside the dropdown */
@@ -113,6 +117,7 @@
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  border-radius: 6px;
 }
 
 /* Change color of dropdown links on hover */
