@@ -1,4 +1,4 @@
-<div class="slider-container">
-  <span>{{sliderValue}}</span>
-  <input (change)="sliderValueChangeHandler($event)" type="range" min="0" max="100" value="1" class="range range-lg" />
+<div class="slidecontainer">
+  <span>{{sliderValue | number:'2.0'}}Jahre</span>
+  <input (input)="sliderValueChangeHandler($event)" type="range" min="1" max="100" value="1" class="slider">
 </div>

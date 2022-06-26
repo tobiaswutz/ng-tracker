@@ -14,10 +14,10 @@ export class NavbarComponent implements OnInit {
     console.log('manageTheme', event.target.checked)
     const kek = document.getElementById('html')
     if (event.target.checked && kek) {
-      kek.setAttribute('data-theme', 'light')
+      kek.setAttribute('data-theme', 'black')
     }
     if (!event.target.checked && kek) {
-      kek.setAttribute('data-theme', 'black')
+      kek.setAttribute('data-theme', 'light')
     }
   }
 }

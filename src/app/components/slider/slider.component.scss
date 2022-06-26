@@ -1,0 +1,49 @@
+$main: rgb(47, 0, 128);
+
+.slidecontainer {
+  width: 100%;
+  min-width: 20rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $main;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1rem;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 1rem;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: $main;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: $main;
+  cursor: pointer;
+  border-radius: 100%;
+}

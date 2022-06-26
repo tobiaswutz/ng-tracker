@@ -20,7 +20,11 @@ export class SliderComponent implements OnInit {
   public sliderValueChangeHandler(event: any): void {
     console.log('sliderValueChangeHandler', event)
 
-    this.sliderValue = event.target.value
+    if (event.target.value < 10) {
+      this.sliderValue = parseInt(`0${event.target.value}`)
+    } else {
+      this.sliderValue = event.target.value
+    }
     this.sliderValueChange.emit(this.sliderValue)
   }
 }
