@@ -5,9 +5,17 @@ import { ComponentsModule } from '../components/components.module'
 import { HomeComponent } from './home/home.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { StakingCalculatorComponent } from './staking-calculator/staking-calculator.component'
+import { LandingComponent } from './landing/landing.component'
+import { SignupComponent } from './signup/signup.component'
 
 @NgModule({
   imports: [CommonModule, FormsModule, ComponentsModule],
-  declarations: [HomeComponent, DashboardComponent, StakingCalculatorComponent],
+  declarations: [
+    HomeComponent,
+    DashboardComponent,
+    StakingCalculatorComponent,
+    LandingComponent,
+    SignupComponent,
+  ],
 })
 export class PagesModule {}
