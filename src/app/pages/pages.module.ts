@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { ComponentsModule } from '../components/components.module'
 import { HomeComponent } from './home/home.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { StakingCalculatorComponent } from './staking-calculator/staking-calculator.component'
 import { LandingComponent } from './landing/landing.component'
-import { SignupComponent } from './signup/signup.component'
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ComponentsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, ComponentsModule],
   declarations: [
     HomeComponent,
     DashboardComponent,
     StakingCalculatorComponent,
     LandingComponent,
-    SignupComponent,
+    LoginComponent,
   ],
 })
 export class PagesModule {}
