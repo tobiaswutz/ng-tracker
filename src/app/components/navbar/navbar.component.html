@@ -1,10 +1,8 @@
-<div class="navbar">
+<div [ngClass]="loggedIn ? 'navbar-login' : 'navbar'">
   <div class="nav-left">
     <div class="logo-container">
-      <!-- <img src="../../../assets/images/logo.png" alt="logo" class="logo"> -->
-      <!-- <span class="logo">CBUCKET</span> -->
     </div>
-    <div class="menu">
+    <div *ngIf="loggedIn" class="menu">
       <a class="menu-item" routerLink="/home" routerLinkActive="active">Home</a>
       <a class="menu-item" routerLink="/dashboard" routerLinkActive="active">Dashboards</a>
       <a class="menu-item" routerLink="/staking-calculator" routerLinkActive="active">Staking</a>
@@ -21,5 +19,6 @@
   <div class="nav-right">
     <a class="menu-item"  routerLink="/login" routerLinkActive="active">Login</a>
     <a class="menu-item" routerLink="/signup" routerLinkActive="active">Register</a>
+    <button class="menu-item" (click)="logout()">ausloggen</button>
   </div>
 </div>

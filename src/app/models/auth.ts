@@ -1,5 +1,5 @@
 export interface AuthResponseTokenObj {
-    token: string;
+    access_token: string;
 }
 
 export class JWTDecoded {

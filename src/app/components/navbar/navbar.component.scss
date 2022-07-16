@@ -1,5 +1,21 @@
 .navbar {
-  background-color: black;
+  background-color: rgb(144, 0, 0);
+  color: white;
+  position: fixed;
+  top: 0;
+  border-radius: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  margin-bottom: 0;
+  z-index: 1030;
+  display: flex;
+  flex-direction: row;
+  height: 3.5rem;
+  width: 100vw;
+  justify-content: space-between;
+}
+
+.navbar-login {
+  background-color: rgb(0, 130, 13);
   color: white;
   position: fixed;
   top: 0;
@@ -122,4 +138,19 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }

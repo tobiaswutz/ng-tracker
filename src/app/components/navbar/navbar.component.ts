@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { AuthService } from 'src/app/services'
+import { takeWhile } from 'rxjs'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-navbar',
@@ -6,9 +9,23 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
+  
+  public loggedIn: boolean = false
+  
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authService.loggedIn.subscribe(
+      (loggedIn: boolean) => {
+        this.loggedIn = loggedIn
+        console.log('loggedIn', loggedIn);
+        
+      }
+    )
+  }
 
   public manageTheme(event: any): void {
     console.log('manageTheme', event.target.checked)
@@ -20,6 +37,11 @@ export class NavbarComponent implements OnInit {
       kek.setAttribute('data-theme', 'light')
     }
   }
+
+  public logout(): void {
+    this.authService.logout()
+    this.router.navigate(['/login'])
+  }
 }
 
-// document.querySelector('html').setAttribute('data-theme', 'cupcake')
+
