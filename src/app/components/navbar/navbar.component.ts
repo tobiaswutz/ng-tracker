@@ -10,21 +10,13 @@ import { Router } from '@angular/router'
 })
 export class NavbarComponent implements OnInit {
   
-  public loggedIn: boolean = false
-  
+
   constructor(
     private authService: AuthService,
     private router: Router
   ) { }
 
-  ngOnInit() {
-    this.authService.loggedIn.subscribe(
-      (loggedIn: boolean) => {
-        this.loggedIn = loggedIn
-        console.log('loggedIn', loggedIn);
-      }
-    )
-  }
+  ngOnInit() {}
 
   public manageTheme(event: any): void {
     console.log('manageTheme', event.target.checked);

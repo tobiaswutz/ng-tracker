@@ -5,15 +5,17 @@ import { Observable, Subject } from "rxjs";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { AuthResponseTokenObj, JWTDecoded } from "../models/auth";
 import { Router } from "@angular/router";
+import { User } from "../models/user";
 
 
 @Injectable()
 export class AuthService {
 
   private baseUrl = 'http://localhost:3000/';
+  public loggedIn: Subject<boolean> = new Subject<boolean>();
+
   public userData: JWTDecoded | undefined;
 
-  public loggedIn: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     private http: HttpClient,
@@ -24,8 +26,8 @@ export class AuthService {
     const token = localStorage.getItem("token");
     if (!token) { return false; }
     const helper = new JwtHelperService();
-    const expired: boolean = helper.isTokenExpired(token);
-    if (expired) { this.logout(); return false; }
+    // const expired: boolean = helper.isTokenExpired(token);
+    // if (expired) { this.logout(); return false; }
     return true;
 
   }
@@ -65,6 +67,8 @@ export class AuthService {
     localStorage.setItem("token", token);
     const helper = new JwtHelperService();
     this.userData = helper.decodeToken(token)
+    console.log(this.userData);
+    
     this.loggedIn.next(true);
   }
 }
