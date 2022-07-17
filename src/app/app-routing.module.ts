@@ -13,7 +13,7 @@ import { LandingComponent } from './pages/landing/landing.component'
 const routes: Routes = [
   
   { path: '', component: LandingComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },

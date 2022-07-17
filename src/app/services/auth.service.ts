@@ -5,15 +5,14 @@ import { Observable, Subject } from "rxjs";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { AuthResponseTokenObj, JWTDecoded } from "../models/auth";
 import { Router } from "@angular/router";
-import { User } from "../models/user";
 
 
 @Injectable()
 export class AuthService {
 
   private baseUrl = 'http://localhost:3000/';
-  public loggedIn: Subject<boolean> = new Subject<boolean>();
 
+  public loggedIn: Subject<boolean> = new Subject<boolean>();
   public userData: JWTDecoded | undefined;
 
 
@@ -23,20 +22,19 @@ export class AuthService {
   ) { }
 
   public isAuthenticated(): boolean {
+    const helper = new JwtHelperService();
     const token = localStorage.getItem("token");
     if (!token) { return false; }
-    const helper = new JwtHelperService();
-    // const expired: boolean = helper.isTokenExpired(token);
-    // if (expired) { this.logout(); return false; }
+    const expired: boolean = helper.isTokenExpired(token);
+    if (expired) { this.logout(); return false; }
     return true;
-
   }
 
   public signup(email: string, password: string): void {
     const res: Observable<any> = this.http.post(this.baseUrl + "auth/signup", { email, password }, { observe: 'response' });
     res.subscribe({
       next: (response) => {
-        this.setSession(response.access_token);
+        this.setSession(response.body.access_token);
         this.router.navigate(["/welcome"]);
       },
       error: (error) => {
@@ -68,7 +66,6 @@ export class AuthService {
     const helper = new JwtHelperService();
     this.userData = helper.decodeToken(token)
     console.log(this.userData);
-    
     this.loggedIn.next(true);
   }
 }

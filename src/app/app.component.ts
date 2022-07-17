@@ -16,11 +16,7 @@ export class AppComponent implements OnInit {
   public loggedIn: boolean = false
 
   ngOnInit(): void {
-    this.authService.loggedIn.subscribe(
-      (loggedIn: boolean) => {
-        this.loggedIn = loggedIn
-      }
-    )
+
   }
 
 }

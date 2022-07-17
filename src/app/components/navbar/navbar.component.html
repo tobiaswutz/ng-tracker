@@ -5,20 +5,10 @@
     <div class="menu">
       <a class="menu-item" routerLink="/home" routerLinkActive="active">Home</a>
       <a class="menu-item" routerLink="/dashboard" routerLinkActive="active">Dashboards</a>
-      <a class="menu-item" routerLink="/staking-calculator" routerLinkActive="active">Staking</a>
-      <div class="dropdown">
-        <button class="drop">hallo</button>
-        <div class="dropdown-content">
-          <a href="#">Cardano staking</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div>
     </div>
   </div>
   <div class="nav-right">
-    <a class="menu-item"  routerLink="/login" routerLinkActive="active">Login</a>
-    <a class="menu-item" routerLink="/signup" routerLinkActive="active">Register</a>
-    <button class="menu-item" (click)="logout()">ausloggen</button>
+    <button class="menu-item" (click)="logout()">logout</button>
+    <span>{{userData?.email}}</span>
   </div>
 </div>
