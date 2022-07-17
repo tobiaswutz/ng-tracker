@@ -27,25 +27,32 @@ export class AuthService {
     const expired: boolean = helper.isTokenExpired(token);
     if (expired) { this.logout(); return false; }
     return true;
-    
+
   }
 
   public signup(email: string, password: string): void {
-    const res: Observable<AuthResponseTokenObj> = this.http.post<AuthResponseTokenObj>(this.baseUrl + 'auth/signup', { email, password });
-    res.subscribe((response: AuthResponseTokenObj) => {
-      console.log(response);
-      
-      this.setSession(response.access_token);
-      this.router.navigate(["/dashboard"]);
+    const res: Observable<any> = this.http.post(this.baseUrl + "auth/signup", { email, password }, { observe: 'response' });
+    res.subscribe({
+      next: (response) => {
+        this.setSession(response.access_token);
+        this.router.navigate(["/welcome"]);
+      },
+      error: (error) => {
+        alert(error.error.message);
+      }
     });
   }
 
   public login(email: string, password: string): void {
-    const res: Observable<AuthResponseTokenObj> = this.http.post<AuthResponseTokenObj>(this.baseUrl + "auth/signin", { email, password });
-    res.subscribe((response: AuthResponseTokenObj) => {
-      console.log(response);
-      this.setSession(response.access_token);
-      this.router.navigate(["/dashboard"]);
+    const res: Observable<any> = this.http.post(this.baseUrl + "auth/signin", { email, password });
+    res.subscribe({
+      next: (response) => {
+        this.setSession(response.access_token);
+        this.router.navigate(["/dashboard"]);
+      },
+      error: (error) => {
+        alert(error.error.message);
+      }
     });
   }
 

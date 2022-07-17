@@ -11,9 +11,11 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { LandingComponent } from './pages/landing/landing.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, LoginComponent, SignupComponent, DashboardComponent, NotFoundComponent],
+  declarations: [AppComponent, NavbarComponent, HomeComponent, LoginComponent, SignupComponent, DashboardComponent, NotFoundComponent, WelcomeComponent, LandingComponent],
   imports: [BrowserModule, AppRoutingModule, ComponentsModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

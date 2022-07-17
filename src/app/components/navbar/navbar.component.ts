@@ -22,13 +22,12 @@ export class NavbarComponent implements OnInit {
       (loggedIn: boolean) => {
         this.loggedIn = loggedIn
         console.log('loggedIn', loggedIn);
-        
       }
     )
   }
 
   public manageTheme(event: any): void {
-    console.log('manageTheme', event.target.checked)
+    console.log('manageTheme', event.target.checked);
     const kek = document.getElementById('html')
     if (event.target.checked && kek) {
       kek.setAttribute('data-theme', 'black')
