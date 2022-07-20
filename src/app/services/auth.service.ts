@@ -30,8 +30,8 @@ export class AuthService {
     return true;
   }
 
-  public signup(email: string, password: string): void {
-    const res: Observable<any> = this.http.post(this.baseUrl + "auth/signup", { email, password }, { observe: 'response' });
+  public signup(email: string, password: string, firstName: string, lastName: string): void {
+    const res: Observable<any> = this.http.post(this.baseUrl + "auth/signup", { email, password, firstName, lastName }, { observe: 'response' });
     res.subscribe({
       next: (response) => {
         this.setSession(response.body.access_token);

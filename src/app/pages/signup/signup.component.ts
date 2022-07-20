@@ -19,11 +19,8 @@ export class SignupComponent implements OnInit {
   }
 
   public handleSignUp(): void {
-    if (!this.email || !this.password) {
-      alert("Please fill in all fields");
-      return;
-    }
-    this.authService.signup(this.email, this.password);
+    console.log('hallo');
+    
   }
 
 }
